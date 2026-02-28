@@ -23,32 +23,32 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_FLASH += \
-S32K144_Bootloader_Mock1.srec \
+Bootloader_Mock.srec \
 
 SECONDARY_SIZE += \
-S32K144_Bootloader_Mock1.siz \
+Bootloader_Mock.siz \
 
 
 # All Target
-all: S32K144_Bootloader_Mock1.elf secondary-outputs
+all: Bootloader_Mock.elf secondary-outputs
 
 # Tool invocations
-S32K144_Bootloader_Mock1.elf: $(OBJS) D:/s32_prj/S32K144_Bootloader_Mock1/Project_Settings/Linker_Files/S32K144_64_flash.ld $(USER_OBJS)
+Bootloader_Mock.elf: $(OBJS) D:/s32_prj/Bootloader_Mock/Project_Settings/Linker_Files/S32K144_64_flash.ld $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Standard S32DS C Linker'
-	arm-none-eabi-gcc -o "S32K144_Bootloader_Mock1.elf" "@S32K144_Bootloader_Mock1.args"  $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -o "Bootloader_Mock.elf" "@Bootloader_Mock.args"  $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-S32K144_Bootloader_Mock1.srec: S32K144_Bootloader_Mock1.elf
+Bootloader_Mock.srec: Bootloader_Mock.elf
 	@echo 'Invoking: Standard S32DS Create Flash Image'
-	arm-none-eabi-objcopy -O srec S32K144_Bootloader_Mock1.elf  "S32K144_Bootloader_Mock1.srec"
+	arm-none-eabi-objcopy -O srec Bootloader_Mock.elf  "Bootloader_Mock.srec"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-S32K144_Bootloader_Mock1.siz: S32K144_Bootloader_Mock1.elf
+Bootloader_Mock.siz: Bootloader_Mock.elf
 	@echo 'Invoking: Standard S32DS Print Size'
-	arm-none-eabi-size --format=berkeley S32K144_Bootloader_Mock1.elf
+	arm-none-eabi-size --format=berkeley Bootloader_Mock.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 

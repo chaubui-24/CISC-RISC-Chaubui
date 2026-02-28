@@ -1,5 +1,5 @@
 -c
--I"D:/s32_prj/S32K144_Bootloader_Mock1/include"
+-I"D:/s32_prj/Bootloader_Mock/include"
 -x assembler-with-cpp
 -DSTART_FROM_FLASH
 -g3
